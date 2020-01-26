@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeckFactory {
-//    private List<Card> cards;
-//
-//    public DeckFactory(List<Card> cards) {
-//        this.cards = createAndGetDeck();
-//    }
 
     List<Card> createAndGetDeck() {
         List<Card> deck = new ArrayList<>();

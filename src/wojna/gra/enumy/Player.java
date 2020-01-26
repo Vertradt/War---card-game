@@ -3,21 +3,19 @@ package wojna.gra.enumy;
 import java.util.List;
 
 public class Player {
-    List<Card> card;
+    private List<Card> playerCards;
 
-    public Player(List<Card> card) {
-        this.card = card;
+    void offerCards(List<Card> pileOfCards) {
+        playerCards = pileOfCards;
     }
 
-    List<Card> givePlayerDeck(List<Card> handOfPlayer1) {
-
-        return card;
+    public List<Card> getPlayerCards() {
+        return playerCards;
     }
+
 
     public Card giveOneCard(int a) {
-
-        return givePlayerDeck(handOfPlayer1).get(1);
-
+        return playerCards.get(a - 1);
     }
 
 

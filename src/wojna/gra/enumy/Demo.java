@@ -20,17 +20,18 @@ public class Demo {
         DeckFactory deckFactory = new DeckFactory();
 
         List<Card> deckOfCards = deckFactory.createAndGetDeck();
-        Player player1 = new Player(deckOfCards);
-        Player player2 = new Player(deckOfCards);
-        CardManager cardManager = new CardManager(player1,player2,deckOfCards);
+        Player player1 = new Player();
+        Player player2 = new Player();
+        CardManager cardManager = new CardManager(player1, player2, deckOfCards);
         System.out.println("*******************************");
-//        List<Card> shuffledCards = cardManager.shuffleDeckOfCards();
-        cardManager.dealTheCards();
-        System.out.println(player1.giveOneCard(1));
-        System.out.println(player2.giveOneCard(1));
-        System.out.println(".............................");
-//        System.out.println(player1.giveOneCard(10));
-//        System.out.println(player2.giveOneCard(10));
+        List<Card> shuffledCards = cardManager.shuffleDeckOfCards();
+        cardManager.dealTheCards(shuffledCards);
+        player1.giveOneCard(1);
+        player2.giveOneCard(1);
+        Displayer displayer1 = new Displayer(player1);
+        Displayer displayer2 = new Displayer(player2);
+        displayer1.display();
+        displayer2.display();
 
 
     }

@@ -1,13 +1,16 @@
 package wojna.gra.enumy;
 
-import java.util.List;
-
 public class Displayer {
+    private Player player;
 
+    public Displayer(Player player) {
+        this.player = player;
+    }
 
-    static void display(List<Card> cards) {
+    public void display() {
         int i = 1;
-        for (Card card1 : cards) {
+
+        for (Card card1 : player.getPlayerCards()) {
             System.out.println(i + ": " + card1);
             i++;
         }

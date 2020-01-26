@@ -1,7 +1,6 @@
 package wojna.gra.enumy;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.shuffle;
@@ -18,27 +17,24 @@ public class CardManager {
         this.allCards = allCards;
     }
 
-    List<Card> shuffleDeckOfCards() {
+    public List<Card> shuffleDeckOfCards() {
         shuffle(allCards);
         return allCards;
     }
 
-    void dealTheCards() {
-        Collections.shuffle(allCards);
-//        initList();
-        List<Card> handOfPlayer1 = new ArrayList<>();
-        List<Card> handOfPlayer2 = new ArrayList<>();
-        for (int i = 0; i < allCards.size(); i++) {
+    void dealTheCards(List<Card> shuffledCards) {
+        List<Card> cards1 = new ArrayList<>();
+        List<Card> cards2 = new ArrayList<>();
+        for (int i = 0; i < shuffledCards.size(); i++) {
             if (i % 2 == 0) {
-                handOfPlayer1.add(allCards.get(i));
+                cards1.add(allCards.get(i));
             } else {
-                handOfPlayer2.add(allCards.get(i));
+                cards2.add(allCards.get(i));
 
             }
         }
-        player1.givePlayerDeck(handOfPlayer1);
-        player2.givePlayerDeck(handOfPlayer1);
-        System.out.println("****************");
+        player1.offerCards(cards1);
+        player2.offerCards(cards2);
     }
 
 

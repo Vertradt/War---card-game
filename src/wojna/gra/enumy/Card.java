@@ -10,10 +10,6 @@ public class Card {
     }
 
 
-//        public Rank getPower() {
-//        return rank;
-//    }
-
     @Override
     public String toString() {
         return rank + " " + colour;
