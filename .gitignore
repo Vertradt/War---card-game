@@ -99,7 +99,7 @@ modules.xml
 
 # Package Files #
 *.jar
-*.war
+*.gameManager
 *.nar
 *.ear
 *.zip

@@ -1,22 +1,42 @@
 package wojna.gra.enumy;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private List<Card> playerCards;
+    private List<Card> playerCards = new ArrayList<>();
 
     void offerCards(List<Card> pileOfCards) {
-        playerCards = pileOfCards;
+        this.playerCards = pileOfCards;
     }
 
-    public List<Card> getPlayerCards() {
+    List<Card> getPlayerCards() {
         return playerCards;
     }
 
+    Card giveCardFromTop() {
+        Card card = null;
+        for (int i = 0; i < playerCards.size(); i++) {
+            card = playerCards.get(0);
+        }
+        playerCards.remove(card);
+        return card;
+    }
 
-    public Card giveOneCard(int a) {
-        return playerCards.get(a - 1);
+    void addTwoCardsToDeck(List<Card> cards) {
+        playerCards.addAll(cards);
     }
 
 
+    Player whoWins(Player player) {
+        return player;
+    }
+
+//    @Override
+//    public String toString() {
+//        final StringBuilder sb = new StringBuilder();
+//        sb.append();
+//        return sb.toString();
+//    }
 }

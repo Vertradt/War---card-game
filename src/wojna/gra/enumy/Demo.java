@@ -3,10 +3,10 @@ package wojna.gra.enumy;
 import java.util.List;
 
 public class Demo {
-    private War war;
+    private GameManager gameManager;
 
-    public Demo(War war) {
-        this.war = war;
+    public Demo(GameManager gameManager) {
+        this.gameManager = gameManager;
     }
 
     public void demonstateTheProgram() {
@@ -14,7 +14,6 @@ public class Demo {
         Card card = new Card(Rank.AS, Suit.KARO);
 
         Card card1 = new Card(Rank.AS, Suit.PIK);
-        war.makeWar(card, card1);
 
         System.out.println();
         DeckFactory deckFactory = new DeckFactory();
@@ -26,13 +25,23 @@ public class Demo {
         System.out.println("*******************************");
         List<Card> shuffledCards = cardManager.shuffleDeckOfCards();
         cardManager.dealTheCards(shuffledCards);
-        player1.giveOneCard(1);
-        player2.giveOneCard(1);
         Displayer displayer1 = new Displayer(player1);
         Displayer displayer2 = new Displayer(player2);
         displayer1.display();
         displayer2.display();
 
+
+        GameManager gameManager = new GameManager(player1, player2);
+//        gameManager.giveCardsFromTable();
+
+
+//        gameManager.evaluate(player1.giveCardFromTop(), player2.giveCardFromTop());
+//        gameManager.playTheGame(player2, player1);
+        gameManager.playTheGame();
+
+
+        displayer1.display();
+        displayer2.display();
 
     }
 }

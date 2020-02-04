@@ -1,31 +1,30 @@
 package wojna.gra.enumy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class War {
-    //etap 1 gracze z rozdanymi kartami
-    //etap prosta symulacja rozgrywki do skonczenia kart  // metoda zagrania po 1 karcie i roztrzygniecia wyniku
-    // metoda zebrania kart
-    //dopracowac rozpoznawanie konca rozgrywki
-    //zaimplementowac wojne  // rozpoznana wojna> dołożenie bonusowych kart(do puli wygranej) >> ponowne wywołanie metody pojedynku
+    private List<Card> pullOfCards = new ArrayList<>();
 
-    // pojedynek -> wojna
-    // 2 zakryte
-    // pojedynek -> wojna
-
-
-
-
-
-
-    void makeWar(Card card1, Card card2){
-        if(card1.getPower() > card2.getPower()){
-            System.out.printf("Wygrywa kara \"%s\".", card1);
-        }
-        else if (card1.getPower() < card2.getPower()){
-            System.out.printf("Wygrywa kara \"%s\".", card2);
-
-        }
-        else {
-            System.out.printf("Remis, \"%s\" i \"%s\" są równe.", card1,card2);
-        }
+    public void addToPull(List<Card> cards) {
+        pullOfCards.addAll(cards);
     }
+
+    public void makeWar() {
+
+//        pullOfCards.add(card1);
+//        pullOfCards.add(card2);
+        for (Card pullOfCard : pullOfCards) {
+            System.out.println(pullOfCard);
+        }
+        System.out.println("+++++++++++++++++++++++++++++++");
+    }
+    //Porównuję karty
+    //Gdy karty są równe trafiają do puli
+    // Dokładam dwie zakryte karty do puli
+    //Porównuję kolejne dwie karty
+    // Jeśli jedna większa to pula jest przekazywana do jenej z list
+    // Jeśli obie równe ponownie to zapętlam przeprowadzenie wojny
+
+
 }
